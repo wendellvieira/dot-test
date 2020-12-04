@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="./src/css/style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" href="src/css/responsive.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     </head>
     <body>
         <header class='home-header'>
@@ -14,45 +17,59 @@
             <div class="texts">
                 <h1>LOREM IPSUM</h1>
                 <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+                <span class='next-stage animate__animated hover-tada'>
+                    <i class="fas fa-arrow-down"></i>
+                </span>
             </div>
             <nav class="navigate">
-                <ul class='active'></ul>
-                <ul></ul>
-                <ul></ul>
+                <ul class='animate__animated hover-bounce active'></ul>
+                <ul class='animate__animated hover-bounce'></ul>
+                <ul class='animate__animated hover-bounce'></ul>
             </nav>
         </header>
 
         <section class='carrosel'>
             <div class="container">
                 <div class="cnt-carrosel-2">
-                    <aside>
-                        <div class="cnt-img">
-                            <img src="src/images/bg.png">
-                        </div>
-                        <div class="cnt-text">
-                            <div class="title">LOREM IPSUM</div>
-                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
-                        </div>
-                    </aside>
-                    <aside>
-                        <div class="cnt-img">
-                            <img src="src/images/bg.png">
-                        </div>
-                        <div class="cnt-text">
-                            <div class="title">LOREM IPSUM</div>
-                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
-                        </div>
-                    </aside>
-                    <aside>
-                        <div class="cnt-img">
-                            <img src="src/images/bg.png">
-                        </div>
-                        <div class="cnt-text">
-                            <div class="title">LOREM IPSUM</div>
-                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
-                        </div>
-                    </aside>
-                </div>
+                    <div class="cnt-items-2">
+                        <aside>
+                            <div class="cnt-img">
+                                <img src="src/images/bg.png">
+                            </div>
+                            <div class="cnt-text">
+                                <div class="title">LOREM IPSUM</div>
+                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+                            </div>
+                        </aside>
+                        <aside>
+                            <div class="cnt-img">
+                                <img src="src/images/bg.png">
+                            </div>
+                            <div class="cnt-text">
+                                <div class="title">LOREM IPSUM</div>
+                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+                            </div>
+                        </aside>
+                        <aside>
+                            <div class="cnt-img">
+                                <img src="src/images/bg.png">
+                            </div>
+                            <div class="cnt-text">
+                                <div class="title">LOREM IPSUM</div>
+                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+                            </div>
+                        </aside>
+                    </div>
+    
+                    <nav class="carrosel-2">
+                        <span>
+                            <i class="fas fa-arrow-left animate__animated hover-tada"></i>
+                        </span>
+                        <span>
+                            <i class="fas fa-arrow-right animate__animated hover-tada"></i>
+                        </span>
+                    </nav>
+                </div>                
             </div>
 
         </section>
@@ -60,7 +77,7 @@
         <section class='about-us'>
             <div class="container">
                 <div class="cnt-about-us">
-                    <div class="image" style="background-image: url('src/images/bg.png');"></div>
+                    <div class="image animate__animated hover-tada" style="background-image: url('src/images/bg.png');"></div>
                     <div class="cnt-text">
                         <h3>LOREM IPSUM</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
@@ -78,6 +95,7 @@
                     <aside class='active'>
                         <header>
                             <span>Lorem impsom</span>
+                            <i class="fas fa-arrow-up"></i>
                         </header>
                         <main>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
@@ -86,6 +104,7 @@
                     <aside>
                         <header>
                             <span>Lorem impsom</span>
+                            <i class="fas fa-arrow-down"></i>
                         </header>
                         <main>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
@@ -94,6 +113,7 @@
                     <aside>
                         <header>
                             <span>Lorem impsom</span>
+                            <i class="fas fa-arrow-down"></i>
                         </header>
                         <main>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
@@ -102,6 +122,7 @@
                     <aside>
                         <header>
                             <span>Lorem impsom</span>
+                            <i class="fas fa-arrow-down"></i>
                         </header>
                         <main>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.

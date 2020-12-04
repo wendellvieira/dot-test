@@ -27,6 +27,20 @@ img {
     align-items: flex-start;
     justify-content: center;
 }
+.next-stage {
+    color: #333333;
+    font-size: 50px;
+    margin: 32px auto 0;
+    display: block;
+    width: max-content;
+    cursor: pointer;
+}
+.hover-tada:hover {
+    animation-name: tada;
+}
+.hover-bounce:hover {
+    animation-name: bounce;
+}
 
 .home-header .slide {
     position: absolute;
@@ -36,6 +50,7 @@ img {
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
+    background: fixed;
 }
 
 .home-header .texts {
@@ -84,15 +99,32 @@ img {
 .carrosel {
     background-color: #454545;
 }
-
+nav.carrosel-2 span {
+    cursor: pointer;
+}
+nav.carrosel-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 58px;
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    margin-top: -29px;
+    top: 50%;
+}
 .cnt-carrosel-2 {
+    position: relative;
+}
+.cnt-items-2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
-    padding: 45px 0;
+    padding: 45px 90px;
 }
 
-.cnt-carrosel-2 aside .cnt-img{
+.cnt-items-2 aside .cnt-img{
     height: 200px;
     overflow: hidden;
     display: flex;
@@ -101,14 +133,14 @@ img {
     border: 10px solid #6f6f6f;
 }
 
-.cnt-carrosel-2 .cnt-text .title {
+.cnt-items-2 .cnt-text .title {
     font-size: 24px;
     color: #fff;
     text-align: center;
     padding: 16px 0;
 }
 
-.cnt-carrosel-2 .cnt-text .text {
+.cnt-items-2 .cnt-text .text {
     color: #fff;
     text-align: center;
 }
@@ -157,10 +189,17 @@ img {
     font-size: 24px;
     padding: 19px 24px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .cnt-frequent-quests aside.active main {
     padding: 19px 24px;
     height: max-content;
+}
+.cnt-frequent-quests aside.active header {
+    background-color: #fff;
+    color: #6f6f6f;
 }
 .cnt-frequent-quests aside main {
     padding: 0px 24px;
