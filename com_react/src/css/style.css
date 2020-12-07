@@ -201,37 +201,9 @@ aside.item-slide-2 .cnt-img {
     padding: 1px 0;
 }
 
-.cnt-frequent-quests aside header {
-    background-color: #6f6f6f;
-    color: #fff;
-    font-size: 24px;
-    padding: 19px 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.cnt-frequent-quests aside.active main {
-    padding: 19px 24px;
-    height: max-content;
-}
-.cnt-frequent-quests aside.active header {
-    background-color: #fff;
-    color: #6f6f6f;
-}
-.cnt-frequent-quests aside main {
-    padding: 0px 24px;
-    background-color: #fff;
-    height: 0px;
-    overflow: hidden;
-}
-.cnt-frequent-quests aside {
-    margin-bottom: 1px;
-}
+
 .cnt-frequent-quests {
     margin: 55px 0;
-    border-radius: 16px;
-    overflow: hidden;
 }
 
 .page-footer span {
@@ -297,4 +269,37 @@ aside.item-slide-2 .cnt-img {
     margin: 30px auto 16px;
     display: block;
     cursor: pointer;
+}
+
+.accordion {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.accordion aside header {
+    background-color: #6f6f6f;
+    color: #fff;
+    font-size: 24px;
+    padding: 19px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.accordion aside.active main {
+    padding: 19px 24px;
+    height: max-content;
+}
+.accordion aside.active header {
+    background-color: #fff;
+    color: #6f6f6f;
+}
+.accordion aside main {
+    padding: 0px 24px;
+    background-color: #fff;
+    height: 0px;
+    overflow: hidden;
+}
+.accordion aside {
+    margin-bottom: 1px;
 }
