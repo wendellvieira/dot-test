@@ -1,6 +1,17 @@
-import React from 'react'
+import Axios from 'axios'
+import Carousel2, {Carousel2Item} from 'components/Carousel2'
+import React, {useEffect, useState} from 'react'
+import {iFakeServe} from 'types'
 
 export default function Home() {
+    const [app, setDataApp] = useState<iFakeServe>({carousel2: []})
+
+    useEffect(() => {
+        Axios.get<iFakeServe>('/fake-backend.json').then((resp) => {
+            setDataApp(resp.data)
+        })
+    }, [])
+
     return (
         <>
             <header className="home-header">
@@ -25,67 +36,16 @@ export default function Home() {
 
             <section className="carrosel">
                 <div className="container">
-                    <div className="cnt-carrosel-2">
-                        <div className="cnt-items-2">
-                            <aside>
-                                <div className="cnt-img">
-                                    <img src="bg.png" />
-                                </div>
-                                <div className="cnt-text">
-                                    <div className="title">LOREM IPSUM</div>
-                                    <div className="text">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Quis ipsum suspendisse ultrices
-                                        gravida. Risus commodo viverra maecenas
-                                        accumsan lacus vel facilisis.
-                                    </div>
-                                </div>
-                            </aside>
-                            <aside>
-                                <div className="cnt-img">
-                                    <img src="bg.png" />
-                                </div>
-                                <div className="cnt-text">
-                                    <div className="title">LOREM IPSUM</div>
-                                    <div className="text">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Quis ipsum suspendisse ultrices
-                                        gravida. Risus commodo viverra maecenas
-                                        accumsan lacus vel facilisis.
-                                    </div>
-                                </div>
-                            </aside>
-                            <aside>
-                                <div className="cnt-img">
-                                    <img src="bg.png" />
-                                </div>
-                                <div className="cnt-text">
-                                    <div className="title">LOREM IPSUM</div>
-                                    <div className="text">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Quis ipsum suspendisse ultrices
-                                        gravida. Risus commodo viverra maecenas
-                                        accumsan lacus vel facilisis.
-                                    </div>
-                                </div>
-                            </aside>
-                        </div>
-
-                        <nav className="carrosel-2">
-                            <span>
-                                <i className="fas fa-arrow-left animate__animated hover-tada"></i>
-                            </span>
-                            <span>
-                                <i className="fas fa-arrow-right animate__animated hover-tada"></i>
-                            </span>
-                        </nav>
-                    </div>
+                    <Carousel2>
+                        {app.carousel2.map((item, index) => (
+                            <Carousel2Item
+                                key={index}
+                                title={item.title}
+                                desc={item.desc}
+                                img={item.img}
+                            />
+                        ))}
+                    </Carousel2>
                 </div>
             </section>
 
@@ -143,48 +103,6 @@ export default function Home() {
                             <header>
                                 <span>Lorem impsom</span>
                                 <i className="fas fa-arrow-up"></i>
-                            </header>
-                            <main>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-                                Quis ipsum suspendisse ultrices gravida. Risus
-                                commodo viverra maecenas accumsan lacus vel
-                                facilisis.
-                            </main>
-                        </aside>
-                        <aside>
-                            <header>
-                                <span>Lorem impsom</span>
-                                <i className="fas fa-arrow-down"></i>
-                            </header>
-                            <main>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-                                Quis ipsum suspendisse ultrices gravida. Risus
-                                commodo viverra maecenas accumsan lacus vel
-                                facilisis.
-                            </main>
-                        </aside>
-                        <aside>
-                            <header>
-                                <span>Lorem impsom</span>
-                                <i className="fas fa-arrow-down"></i>
-                            </header>
-                            <main>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-                                Quis ipsum suspendisse ultrices gravida. Risus
-                                commodo viverra maecenas accumsan lacus vel
-                                facilisis.
-                            </main>
-                        </aside>
-                        <aside>
-                            <header>
-                                <span>Lorem impsom</span>
-                                <i className="fas fa-arrow-down"></i>
                             </header>
                             <main>
                                 Lorem ipsum dolor sit amet, consectetur
