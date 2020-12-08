@@ -23,10 +23,8 @@ img {
 .home-header {
     width: 100%;
     height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
 }
+
 .next-stage {
     color: #333333;
     font-size: 50px;
@@ -42,16 +40,7 @@ img {
     animation-name: bounce;
 }
 
-.home-header .slide {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    z-index: 0;
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background: fixed;
-}
+
 
 .home-header .texts {
     position: relative;
@@ -67,10 +56,26 @@ img {
     font-size: 24px;
     text-align: center
 }
-
-.home-header .navigate {
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 1px 0;
+}
+.slider .slide-item {
     position: absolute;
-    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: linear 300ms opacity;
+    
+}
+.slider .navigate {
+    position: absolute;
+    bottom: -1px;
     background-color: rgb(52 52 52 / .75);
     width: 100%;
     height: 90px;
@@ -80,12 +85,15 @@ img {
     gap: 15px;
 }
 
-.home-header .navigate ul.active {
+.slider .navigate ul.active {
     box-shadow: inset 0px 0px 0px 8px #fff;
     background: #546130;
 
 }
-.home-header .navigate ul {
+.slider .navigate ul:hover {
+    background: #546130;
+}
+.slider .navigate ul {
     width: 50px;
     height: 50px;
     box-shadow: inset 0px 0px 0px 8px #343434;
@@ -94,6 +102,7 @@ img {
     display: block;
     margin: 0;
     cursor: pointer;
+    transition: linear 300ms all;
 }
 
 .carrosel {

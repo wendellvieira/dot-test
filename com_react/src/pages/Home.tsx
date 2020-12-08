@@ -1,37 +1,42 @@
 import Axios from 'axios'
+import Accordion from 'components/Accordion'
 import Carousel2, {Carousel2Item} from 'components/Carousel2'
+import Slider from 'components/Slider'
 import React, {useEffect, useState} from 'react'
 import {iFakeServe} from 'types'
 
 export default function Home() {
-    const [app, setDataApp] = useState<iFakeServe>({carousel2: []})
+    const [app, setDataApp] = useState<iFakeServe>({
+        carousel2: [],
+        accordion: [],
+        slideImages: [],
+    })
 
     useEffect(() => {
         Axios.get<iFakeServe>('/fake-backend.json').then((resp) => {
-            setDataApp(resp.data)
+            const slideImages = resp.data.carousel2.map(
+                (item) => item.img,
+            ) as string[]
+
+            setDataApp({...resp.data, slideImages})
         })
     }, [])
 
     return (
         <>
             <header className="home-header">
-                <div
-                    className="slide"
-                    style={{backgroundImage: 'url(bg.png)'}}></div>
-                <div className="texts">
-                    <h1>LOREM IPSUM</h1>
-                    <h3>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                    </h3>
-                    <span className="next-stage animate__animated hover-tada">
-                        <i className="fas fa-arrow-down"></i>
-                    </span>
-                </div>
-                <nav className="navigate">
-                    <ul className="animate__animated hover-bounce active"></ul>
-                    <ul className="animate__animated hover-bounce"></ul>
-                    <ul className="animate__animated hover-bounce"></ul>
-                </nav>
+                <Slider images={app.slideImages}>
+                    <div className="texts">
+                        <h1>LOREM IPSUM</h1>
+                        <h3>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit
+                        </h3>
+                        <span className="next-stage animate__animated hover-tada">
+                            <i className="fas fa-arrow-down"></i>
+                        </span>
+                    </div>
+                </Slider>
             </header>
 
             <section className="carrosel">
@@ -99,20 +104,13 @@ export default function Home() {
             <section className="frequent-quests">
                 <div className="container">
                     <div className="cnt-frequent-quests">
-                        <aside className="active">
-                            <header>
-                                <span>Lorem impsom</span>
-                                <i className="fas fa-arrow-up"></i>
-                            </header>
-                            <main>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-                                Quis ipsum suspendisse ultrices gravida. Risus
-                                commodo viverra maecenas accumsan lacus vel
-                                facilisis.
-                            </main>
-                        </aside>
+                        <Accordion>
+                            {app.accordion.map((item, key) => (
+                                <Accordion.Item key={key} title={item.title}>
+                                    {item.text}
+                                </Accordion.Item>
+                            ))}
+                        </Accordion>
                     </div>
                 </div>
             </section>
