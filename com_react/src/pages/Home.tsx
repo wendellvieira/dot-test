@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import Accordion from 'components/Accordion'
 import Carousel2, {Carousel2Item} from 'components/Carousel2'
+import Form from 'components/Form'
 import Slider from 'components/Slider'
 import React, {useEffect, useState} from 'react'
 import {iFakeServe} from 'types'
@@ -116,38 +117,36 @@ export default function Home() {
             </section>
 
             <section className="contact-form">
-                <form action="" className="container">
-                    <div className="cnt-form">
-                        <div className="form-control">
-                            <label htmlFor="">*Nome:</label>
-                            <input type="text" placeholder="Informe seu nome" />
-                        </div>
+                <div className="container">
+                    <Form>
+                        <Form.Input
+                            name="name"
+                            label="*Nome:"
+                            placeholder="Informe seu nome"
+                        />
 
-                        <div className="agrup-line">
-                            <div className="form-control">
-                                <label htmlFor="">*E-mail:</label>
-                                <input
-                                    type="text"
-                                    placeholder="Informe seu e-mail"
-                                />
-                            </div>
-                            <div className="form-control">
-                                <label htmlFor="">*Telefone:</label>
-                                <input
-                                    type="text"
-                                    placeholder="(__) _____-____"
-                                />
-                            </div>
-                        </div>
-                        <div className="form-control textarea">
-                            <label htmlFor="">*Mensagem:</label>
-                            <textarea
-                                placeholder="Escreva aqui"
-                                rows={8}></textarea>
-                        </div>
-                    </div>
-                    <button className="btn-send">ENVIAR</button>
-                </form>
+                        <Form.Agroup>
+                            <Form.Input
+                                name="email"
+                                label="*E-mail:"
+                                placeholder="Informe seu e-mail"
+                            />
+                            <Form.Input
+                                mask="(99) 99999-9999"
+                                name="phone"
+                                label="*Telefone:"
+                                placeholder="(__) _____-____"
+                            />
+                        </Form.Agroup>
+
+                        <Form.Textarea
+                            name="message"
+                            label="*Mensagem:"
+                            placeholder="Escreva aqui sua mensagem"
+                        />
+                        <button className="btn-send">ENVIAR</button>
+                    </Form>
+                </div>
             </section>
 
             <footer className="page-footer">
