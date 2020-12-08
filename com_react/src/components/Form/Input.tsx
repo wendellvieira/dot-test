@@ -6,7 +6,7 @@ import {iFormControl} from 'types'
 export function Input({name, label, placeholder}: iFormControl) {
     const inputRef = useRef(null)
 
-    const {fieldName, defaultValue, registerField} = useField(name)
+    const {fieldName, defaultValue, registerField, error} = useField(name)
 
     useEffect(() => {
         registerField({
@@ -17,7 +17,7 @@ export function Input({name, label, placeholder}: iFormControl) {
     }, [fieldName, registerField])
 
     return (
-        <div className="form-control">
+        <div className={`form-control ${error ? 'has-error' : ''}`}>
             <label>{label}</label>
             <input
                 ref={inputRef}
@@ -25,6 +25,11 @@ export function Input({name, label, placeholder}: iFormControl) {
                 type="text"
                 placeholder={placeholder}
             />
+            {error && (
+                <div title={error} className="error">
+                    <i className="fas fa-exclamation-triangle"></i>
+                </div>
+            )}
         </div>
     )
 }
@@ -34,7 +39,7 @@ export type InputMaskProps = iFormControl & InputProps
 export function InputMask({name, label, placeholder, ...rest}: InputMaskProps) {
     const inputRef = useRef(null)
 
-    const {fieldName, registerField, defaultValue} = useField(name)
+    const {fieldName, registerField, defaultValue, error} = useField(name)
 
     useEffect(() => {
         registerField({
@@ -51,7 +56,7 @@ export function InputMask({name, label, placeholder, ...rest}: InputMaskProps) {
     }, [fieldName, registerField])
 
     return (
-        <div className="form-control">
+        <div className={`form-control ${error ? 'has-error' : ''}`}>
             <label>{label}</label>
             <ReactInputMask
                 ref={inputRef}
@@ -59,6 +64,11 @@ export function InputMask({name, label, placeholder, ...rest}: InputMaskProps) {
                 placeholder={placeholder}
                 {...rest}
             />
+            {error && (
+                <div title={error} className="error">
+                    <i className="fas fa-exclamation-triangle"></i>
+                </div>
+            )}
         </div>
     )
 }

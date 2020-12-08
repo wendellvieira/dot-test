@@ -1,10 +1,14 @@
-import React, {Component} from 'react'
+import React, {Component, createRef} from 'react'
 import {Form as UnformForm} from '@unform/web'
-import {iForm, iFormControl} from 'types'
+import {iForm, iFormControl, FormData} from 'types'
 import {Input, InputMaskProps, InputMask} from './Input'
 import {Textarea} from './Textarea'
+import {ValidationError} from 'yup'
+import {FormHandles} from '@unform/core'
 
 export default class Form extends Component<iForm> {
+    formRef = createRef<FormHandles>()
+
     static Input({mask, ...rest}: Partial<InputMaskProps>) {
         if (mask) {
             const restAttrs = {mask, ...rest} as InputMaskProps
@@ -21,14 +25,33 @@ export default class Form extends Component<iForm> {
 
     static Textarea = Textarea
 
-    handleSubmit(data: any) {
-        console.log(data)
+    async handleSubmit(data: object) {
+        try {
+            this.formRef.current?.setErrors({})
+
+            await this.props.schemaValidate?.validate(data, {
+                abortEarly: false,
+            })
+
+            if (this.props.onSubmit) this.props.onSubmit(data)
+        } catch (err) {
+            const validationErrors: Partial<FormData> = {}
+            if (err instanceof ValidationError) {
+                err.inner.forEach((error) => {
+                    const path = error.path as keyof FormData
+                    validationErrors[path] = error.message
+                })
+                this.formRef.current?.setErrors(validationErrors)
+            }
+        }
     }
 
     render() {
         const {children} = this.props
         return (
-            <UnformForm onSubmit={(ev) => this.handleSubmit(ev)}>
+            <UnformForm
+                ref={this.formRef}
+                onSubmit={(ev) => this.handleSubmit(ev)}>
                 <div className="cnt-form">{children}</div>
             </UnformForm>
         )

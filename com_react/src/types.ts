@@ -1,4 +1,5 @@
 import {ReactNode} from 'react'
+import {ObjectSchema} from 'yup'
 
 export type iAccordionProps = {
     children: ReactNode
@@ -42,10 +43,19 @@ export type iFakeServe = {
 
 export type iForm = {
     children: ReactNode
+    onSubmit?: (data: object) => void
+    schemaValidate?: ObjectSchema<any>
 }
 export type iFormControl = {
     name: string
     label?: string
     placeholder?: string
     mask?: string
+}
+
+export type FormData = {
+    name: string
+    email: string
+    phone: string
+    message: string
 }

@@ -5,6 +5,7 @@ import Form from 'components/Form'
 import Slider from 'components/Slider'
 import React, {useEffect, useState} from 'react'
 import {iFakeServe} from 'types'
+import {schema, handleSubmit} from 'services/contactForm'
 
 export default function Home() {
     const [app, setDataApp] = useState<iFakeServe>({
@@ -118,7 +119,7 @@ export default function Home() {
 
             <section className="contact-form">
                 <div className="container">
-                    <Form>
+                    <Form onSubmit={handleSubmit} schemaValidate={schema}>
                         <Form.Input
                             name="name"
                             label="*Nome:"

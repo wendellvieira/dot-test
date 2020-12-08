@@ -312,3 +312,10 @@ aside.item-slide-2 .cnt-img {
 .accordion aside {
     margin-bottom: 1px;
 }
+
+.has-error {
+    box-shadow: 0 0 0 2px #F44336;
+}
+.error {
+    color:  #f20f0f;
+}
